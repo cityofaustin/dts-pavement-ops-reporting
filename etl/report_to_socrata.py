@@ -1,4 +1,3 @@
-# Docs: https://docs.agileassets.com/display/PD10/The+Q+Object
 import requests
 import os
 import json
@@ -25,6 +24,15 @@ SO_SECRET = os.getenv("SO_SECRET")
 def make_agileassets_request(
     endpoint, method="GET", data=None, headers=None, params=None
 ):
+    """
+    A wrapper function around Requests for making http requests to the AgileAssets API.
+    :param endpoint: The endpoint to make the request to (e.g. /rest/v1/lookup/view/my_report)
+    :param method: GET, POST, PUT, DELETE
+    :param data: Request body
+    :param headers: Request headers
+    :param params: Request url parameters
+    :return: requests.Response
+    """
     url = f"{BASE_URL}{endpoint}"
     response = requests.request(method, url, data=data, headers=headers, params=params)
     response.raise_for_status()
@@ -32,6 +40,11 @@ def make_agileassets_request(
 
 
 def get_token():
+    """
+    Get a temporary access token for authentication with AgileAssets API
+    Docs: https://docs.agileassets.com/display/PD10/REST+API+V2+Security
+    :return: str access token
+    """
     # Getting an access token for auth
     endpoint = "/rest/oauth2/token"
 
@@ -57,6 +70,12 @@ def get_token():
 
 
 def get_report_data(token, report_name, report):
+    """
+    :param token: access token for AgileAssets API
+    :param report_name: name of the report to download
+    :param report: dict of report metadata from config.py
+    :return: list of dicts containing the report data
+    """
     # Downloading report data using our access token
     endpoint = f"/rest/v1/lookup/view/{report_name}"
 
