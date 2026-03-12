@@ -21,9 +21,9 @@ payload = {
 
 # Encoding user/password into a base64 string for auth
 login_string = f"{USERNAME}:{PASSWORD}"
-bytes_data = login_string.encode('utf-8')
+bytes_data = login_string.encode("utf-8")
 encoded_bytes = base64.b64encode(bytes_data)
-encoded_string = encoded_bytes.decode('utf-8')
+encoded_string = encoded_bytes.decode("utf-8")
 
 headers = {
     "Content-Type": "application/x-www-form-urlencoded",
