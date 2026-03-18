@@ -68,7 +68,7 @@ docker build . -t atddocker/dts-pavement-ops-reporting:local
 
 And, running commands locally:
 ```console
-docker run --env-file .env.prod -it atddocker/dts-pavement-ops-reporting:local /bin/bash
+docker run --env-file .env -it atddocker/dts-pavement-ops-reporting:local /bin/bash
 ```
 
 Then, inside of the container, as an example:
