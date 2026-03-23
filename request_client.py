@@ -9,7 +9,6 @@ USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
 BASE_URL = os.getenv("BASE_URL")
 
-# prod: base_url = "https://coa.agileassets.net/PMS_AUSTIN"
 endpoint = "/rest/oauth2/secret"
 url = f"{BASE_URL}{endpoint}"
 
