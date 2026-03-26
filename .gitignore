@@ -1,0 +1,6 @@
+/.idea
+.env
+.env.prod
+.env.test
+*.csv
+.DS_Store
