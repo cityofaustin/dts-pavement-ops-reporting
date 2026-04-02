@@ -123,7 +123,7 @@ def main(args):
         SO_TOKEN,
         username=SO_KEY,
         password=SO_SECRET,
-        timeout=60,
+        timeout=180,
     )
 
     logging.info(f"Downloading Report from AgileAssets: {report_name}")
